@@ -1,0 +1,73 @@
+﻿citizenship,gender,maritial_status,employment,children,Earned Income Relief,Spouse Relief,Foreign Domestic Worker Levy Relief,CPF Relief for Employees,CPF Relief for Self-Employed,NSman (Self) Relief,NSman (Wife) Relief,NSman (Parent) Relief,Parent Relief,Grandparent Caregiver Relief,Sibling Relief,Working Mother's Child Relief,Qualifying Child Relief,Life Insurance Relief,Course Fees Relief,SRS Relief,CPF Cash Top-up Relief,CPF Relief (Compulsory and Voluntary Medisave Contribution)
+Singaporean,Male,Single,Employed (including part-timers)/ Self-employed,Yes,1,0,0,1,1,1,0,0,1,0,1,0,0,1,1,1,1,1
+Singaporean,Female,Single,Employed (including part-timers)/ Self-employed,Yes,1,0,0,1,1,0,0,0,1,0,1,0,0,1,1,1,1,1
+Permanent Resident,Male,Single,Employed (including part-timers)/ Self-employed,Yes,1,0,0,1,1,1,0,0,1,0,1,0,0,1,1,1,1,1
+Permanent Resident,Female,Single,Employed (including part-timers)/ Self-employed,Yes,1,0,0,1,1,0,0,0,1,0,1,0,0,1,1,1,1,1
+Foreigner,Male,Single,Employed (including part-timers)/ Self-employed,Yes,1,0,0,0,0,0,0,0,1,0,1,0,0,1,1,1,0,0
+Foreigner,Female,Single,Employed (including part-timers)/ Self-employed,Yes,1,0,0,0,0,0,0,0,1,0,1,0,0,1,1,1,0,0
+Singaporean,Male,Married,Employed (including part-timers)/ Self-employed,Yes,1,1,0,1,1,1,0,1,1,0,1,0,1,1,1,1,1,1
+Singaporean,Female,Married,Employed (including part-timers)/ Self-employed,Yes,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,1
+Permanent Resident,Male,Married,Employed (including part-timers)/ Self-employed,Yes,1,1,0,1,1,1,0,0,1,0,1,0,1,1,1,1,1,1
+Permanent Resident,Female,Married,Employed (including part-timers)/ Self-employed,Yes,1,1,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1
+Foreigner,Male,Married,Employed (including part-timers)/ Self-employed,Yes,1,1,0,0,0,0,0,0,1,0,1,0,1,1,1,1,0,0
+Foreigner,Female,Married,Employed (including part-timers)/ Self-employed,Yes,1,1,1,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0
+Singaporean,Male,Divorced,Employed (including part-timers)/ Self-employed,Yes,1,0,0,1,1,1,0,1,1,0,1,0,1,1,1,1,1,1
+Singaporean,Female,Divorced,Employed (including part-timers)/ Self-employed,Yes,1,0,1,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1
+Permanent Resident,Male,Divorced,Employed (including part-timers)/ Self-employed,Yes,1,0,0,1,1,1,0,0,1,0,1,0,1,1,1,1,1,1
+Permanent Resident,Female,Divorced,Employed (including part-timers)/ Self-employed,Yes,1,0,1,1,1,0,0,0,1,1,1,1,1,1,1,1,1,1
+Foreigner,Male,Divorced,Employed (including part-timers)/ Self-employed,Yes,1,0,0,0,0,0,0,0,1,0,1,0,1,1,1,1,0,0
+Foreigner,Female,Divorced,Employed (including part-timers)/ Self-employed,Yes,1,0,1,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0
+Singaporean,Male,Single,Unemployed,Yes,0,0,0,0,0,1,0,0,1,0,1,0,0,1,1,1,1,1
+Singaporean,Female,Single,Unemployed,Yes,0,0,0,0,0,0,0,0,1,0,1,0,0,1,1,1,1,1
+Permanent Resident,Male,Single,Unemployed,Yes,0,0,0,0,0,1,0,0,1,0,1,0,0,1,1,1,1,1
+Permanent Resident,Female,Single,Unemployed,Yes,0,0,0,0,0,0,0,0,1,0,1,0,0,1,1,1,1,1
+Foreigner,Male,Single,Unemployed,Yes,0,0,0,0,0,0,0,0,1,0,1,0,0,1,1,1,0,0
+Foreigner,Female,Single,Unemployed,Yes,0,0,0,0,0,0,0,0,1,0,1,0,0,1,1,1,0,0
+Singaporean,Male,Married,Unemployed,Yes,0,1,0,0,0,1,0,1,1,0,1,0,1,1,1,1,1,1
+Singaporean,Female,Married,Unemployed,Yes,0,1,0,0,0,0,1,1,1,0,1,0,1,1,1,1,1,1
+Permanent Resident,Male,Married,Unemployed,Yes,0,1,0,0,0,1,0,0,1,0,1,0,1,1,1,1,1,1
+Permanent Resident,Female,Married,Unemployed,Yes,0,1,0,0,0,0,0,0,1,0,1,0,1,1,1,1,1,1
+Foreigner,Male,Married,Unemployed,Yes,0,1,0,0,0,0,0,0,1,0,1,0,1,1,1,1,0,0
+Foreigner,Female,Married,Unemployed,Yes,0,1,0,0,0,0,0,0,1,0,1,0,1,1,1,1,0,0
+Singaporean,Male,Divorced,Unemployed,Yes,0,0,0,0,0,1,0,1,1,0,1,0,1,1,1,1,1,1
+Singaporean,Female,Divorced,Unemployed,Yes,0,0,0,0,0,0,0,1,1,0,1,0,1,1,1,1,1,1
+Permanent Resident,Male,Divorced,Unemployed,Yes,0,0,0,0,0,1,0,0,1,0,1,0,1,1,1,1,1,1
+Permanent Resident,Female,Divorced,Unemployed,Yes,0,0,0,0,0,0,0,0,1,0,1,0,1,1,1,1,1,1
+Foreigner,Male,Divorced,Unemployed,Yes,0,0,0,0,0,0,0,0,1,0,1,0,1,1,1,1,0,0
+Foreigner,Female,Divorced,Unemployed,Yes,0,0,0,0,0,0,0,0,1,0,1,0,1,1,1,1,0,0
+Singaporean,Male,Single,Employed (including part-timers)/ Self-employed,No,1,0,0,1,1,1,0,0,1,0,1,0,0,1,1,1,1,1
+Singaporean,Female,Single,Employed (including part-timers)/ Self-employed,No,1,0,0,1,1,0,0,0,1,0,1,0,0,1,1,1,1,1
+Permanent Resident,Male,Single,Employed (including part-timers)/ Self-employed,No,1,0,0,1,1,1,0,0,1,0,1,0,0,1,1,1,1,1
+Permanent Resident,Female,Single,Employed (including part-timers)/ Self-employed,No,1,0,0,1,1,0,0,0,1,0,1,0,0,1,1,1,1,1
+Foreigner,Male,Single,Employed (including part-timers)/ Self-employed,No,1,0,0,0,0,0,0,0,1,0,1,0,0,1,1,1,0,0
+Foreigner,Female,Single,Employed (including part-timers)/ Self-employed,No,1,0,0,0,0,0,0,0,1,0,1,0,0,1,1,1,0,0
+Singaporean,Male,Married,Employed (including part-timers)/ Self-employed,No,1,1,0,1,1,1,0,0,1,0,1,0,0,1,1,1,1,1
+Singaporean,Female,Married,Employed (including part-timers)/ Self-employed,No,1,1,1,1,1,0,1,0,1,0,1,0,0,1,1,1,1,1
+Permanent Resident,Male,Married,Employed (including part-timers)/ Self-employed,No,1,1,0,1,1,1,0,0,1,0,1,0,0,1,1,1,1,1
+Permanent Resident,Female,Married,Employed (including part-timers)/ Self-employed,No,1,1,1,1,1,0,0,0,1,0,1,0,0,1,1,1,1,1
+Foreigner,Male,Married,Employed (including part-timers)/ Self-employed,No,1,1,0,0,0,0,0,0,1,0,1,0,0,1,1,1,0,0
+Foreigner,Female,Married,Employed (including part-timers)/ Self-employed,No,1,1,1,0,0,0,0,0,1,0,1,0,0,1,1,1,0,0
+Singaporean,Male,Divorced,Employed (including part-timers)/ Self-employed,No,1,0,0,1,1,1,0,0,1,0,1,0,0,1,1,1,1,1
+Singaporean,Female,Divorced,Employed (including part-timers)/ Self-employed,No,1,0,0,1,1,0,0,0,1,0,1,0,0,1,1,1,1,1
+Permanent Resident,Male,Divorced,Employed (including part-timers)/ Self-employed,No,1,0,0,1,1,1,0,0,1,0,1,0,0,1,1,1,1,1
+Permanent Resident,Female,Divorced,Employed (including part-timers)/ Self-employed,No,1,0,0,1,1,0,0,0,1,0,1,0,0,1,1,1,1,1
+Foreigner,Male,Divorced,Employed (including part-timers)/ Self-employed,No,1,0,0,0,0,0,0,0,1,0,1,0,0,1,1,1,0,0
+Foreigner,Female,Divorced,Employed (including part-timers)/ Self-employed,No,1,0,0,0,0,0,0,0,1,0,1,0,0,1,1,1,0,0
+Singaporean,Male,Single,Unemployed,No,0,0,0,0,0,1,0,0,1,0,1,0,0,1,1,1,1,1
+Singaporean,Female,Single,Unemployed,No,0,0,0,0,0,0,0,0,1,0,1,0,0,1,1,1,1,1
+Permanent Resident,Male,Single,Unemployed,No,0,0,0,0,0,1,0,0,1,0,1,0,0,1,1,1,1,1
+Permanent Resident,Female,Single,Unemployed,No,0,0,0,0,0,0,0,0,1,0,1,0,0,1,1,1,1,1
+Foreigner,Male,Single,Unemployed,No,0,0,0,0,0,0,0,0,1,0,1,0,0,1,1,1,0,0
+Foreigner,Female,Single,Unemployed,No,0,0,0,0,0,0,0,0,1,0,1,0,0,1,1,1,0,0
+Singaporean,Male,Married,Unemployed,No,0,1,0,0,0,1,0,0,0,0,1,0,0,1,1,1,1,1
+Singaporean,Female,Married,Unemployed,No,0,1,0,0,0,0,1,0,1,0,1,0,0,1,1,1,1,1
+Permanent Resident,Male,Married,Unemployed,No,0,1,0,0,0,1,0,0,1,0,1,0,0,1,1,1,1,1
+Permanent Resident,Female,Married,Unemployed,No,0,1,0,0,0,0,0,0,1,0,1,0,0,1,1,1,1,1
+Foreigner,Male,Married,Unemployed,No,0,1,0,0,0,0,0,0,1,0,1,0,0,1,1,1,0,0
+Foreigner,Female,Married,Unemployed,No,0,1,0,0,0,0,0,0,1,0,1,0,0,1,1,1,0,0
+Singaporean,Male,Divorced,Unemployed,No,0,0,0,0,0,1,0,0,1,0,1,0,0,1,1,1,1,1
+Singaporean,Female,Divorced,Unemployed,No,0,0,0,0,0,0,0,0,1,0,1,0,0,1,1,1,1,1
+Permanent Resident,Male,Divorced,Unemployed,No,0,0,0,0,0,1,0,0,1,0,1,0,0,1,1,1,1,1
+Permanent Resident,Female,Divorced,Unemployed,No,0,0,0,0,0,0,0,0,1,0,1,0,0,1,1,1,1,1
+Foreigner,Male,Divorced,Unemployed,No,0,0,0,0,0,0,0,0,1,0,1,0,0,1,1,1,0,0
+Foreigner,Female,Divorced,Unemployed,No,0,0,0,0,0,0,0,0,1,0,1,0,0,1,1,1,0,0
