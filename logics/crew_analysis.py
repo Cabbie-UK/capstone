@@ -1,3 +1,7 @@
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 # modules/crew_analysis.py
 from dotenv import load_dotenv
 from crewai import Agent, Task, Crew
