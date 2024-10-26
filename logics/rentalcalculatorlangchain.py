@@ -58,11 +58,12 @@ For each property:
 2. Using the tax guidelines provided, determine if each expense qualifies as tax-deductible
 3. Categorize expenses as allowable or non-allowable
 4. Provide brief explanations for non-allowable expenses, citing relevant guidelines
+5. If co-ownership status is 'False', co-ownership share is 100%.
 
 Please format your response as a structured analysis of each property, including:
 - Property number
 - Rental income
-- Co-ownership status and share
+- Co-ownership status and share. 
 - For each expense:
   - Category
   - Amount
@@ -86,12 +87,12 @@ Using the provided guidelines, calculate taxable rental income for each property
 
 1. Actual Expense Claims Method:
    - Subtract allowable expenses from gross rental income
-   - Apply ownership share to the result. If co-ownership status is 'False', apply 100 precent ownership share.
+   - Apply ownership share to the result. 
 
 2. Simplified Rental Expense Claims Method:
    - Deduct full mortgage interest from gross rental income
    - Deduct 15 percent of gross rental income as deemed expenses
-   - Apply ownership share to the result. If co-ownership status is 'False', apply 100 precent ownership share.
+   - Apply ownership share to the result.
 
 For each property and method, show:
 - Rental Income
