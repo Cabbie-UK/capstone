@@ -28,7 +28,7 @@ def initialize_vector_store():
 
 def create_qa_chain(vector_store):
     """Create a retrieval QA chain for tax-related queries"""
-    llm = ChatOpenAI(temperature=0, model="gpt-4")
+    llm = ChatOpenAI(temperature=0)
     return RetrievalQA.from_chain_type(
         llm=llm,
         chain_type="stuff",
