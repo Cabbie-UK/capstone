@@ -21,7 +21,7 @@ cffi==1.17.1
 chardet==5.2.0
 charset-normalizer==3.3.2
 chroma-hnswlib==0.7.3
-chromadb==0.4.24
+chromadb
 click==8.1.7
 cohere==5.11.1
 colorama==0.4.6
@@ -83,7 +83,7 @@ idna==3.10
 importlib_metadata==8.4.0
 importlib_resources==6.4.5
 iniconfig==2.0.0
-instructor==1.6.2
+instructor
 ipykernel==6.29.5
 ipython==8.28.0
 jedi==0.19.1
@@ -102,7 +102,7 @@ jupyter_client==8.6.3
 jupyter_core==5.7.2
 kubernetes==31.0.0
 lancedb==0.14.0
-langchain==0.3.4
+langchain
 langchain-chroma==0.1.4
 langchain-cohere==0.3.1
 langchain-community==0.3.3
@@ -222,12 +222,12 @@ soupsieve==2.6
 SQLAlchemy==2.0.35
 stack-data==0.6.3
 starlette==0.39.2
-streamlit==1.38.0
+streamlit
 streamlit-lottie==0.0.5
 streamlit-mermaid==0.2.0
 sympy==1.13.3
 tabulate==0.9.0
-tenacity>=8.5.0
+tenacity
 tiktoken==0.7.0
 tokenizers==0.20.1
 toml==0.10.2
