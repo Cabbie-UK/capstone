@@ -86,12 +86,12 @@ Using the provided guidelines, calculate taxable rental income for each property
 
 1. Actual Expense Claims Method:
    - Subtract allowable expenses from gross rental income
-   - Apply ownership share to the result
+   - Apply ownership share to the result. If co-ownership status is 'False', apply 100 precent ownership share.
 
 2. Simplified Rental Expense Claims Method:
    - Deduct full mortgage interest from gross rental income
    - Deduct 15 percent of gross rental income as deemed expenses
-   - Apply ownership share to the result
+   - Apply ownership share to the result. If co-ownership status is 'False', apply 100 precent ownership share.
 
 For each property and method, show:
 - Rental Income
