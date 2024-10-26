@@ -11,8 +11,8 @@ st.set_page_config(
 )
 
 # Check if the password is correct.  
-if not check_password():  
-    st.stop()
+# if not check_password():  
+#     st.stop()
 
 from dotenv import load_dotenv
 from langchain_chroma import Chroma
@@ -20,7 +20,6 @@ from langchain_openai import OpenAIEmbeddings
 from logics.datafile import filter_and_get_reliefs, capture_and_store
 from helper_functions.llm import get_chatbot_response
 import pandas as pd
-from logics.crew_analysis import run_crew_analysis
 import requests.exceptions
 
 # Custom CSS for better styling
@@ -227,7 +226,8 @@ with relief:
 # region <--------- The codes below are for Rental Income Tax Calculator --------->
 
 import pandas as pd
-from logics.crew_analysis import run_crew_analysis
+# from logics.crew_analysis import run_crew_analysis
+from logics.rentalcalculatorlangchain import run_rental_analysis
 import requests.exceptions
 
 with rent:
@@ -377,7 +377,8 @@ with rent:
                 try:
 
                     # Run the analysis with the provided path
-                    result = run_crew_analysis(property_list)
+                    # result = run_crew_analysis(property_list)
+                    result = run_rental_analysis(property_list)
                     result = result.replace("$", "\\$")
                     
                     
