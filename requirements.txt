@@ -21,14 +21,14 @@ cffi==1.17.1
 chardet==5.2.0
 charset-normalizer==3.3.2
 chroma-hnswlib==0.7.6
-chromadb==0.5.15
+chromadb>=0.4.24,<0.5.0
 click==8.1.7
 cohere==5.11.1
 colorama==0.4.6
 coloredlogs==15.0.1
 comm==0.2.2
-crewai==0.74.2
-crewai-tools==0.13.2
+crewai>=0.74.2
+crewai-tools>=0.13.2
 cryptography==43.0.3
 dataclasses-json==0.6.7
 debugpy==1.8.7
@@ -40,7 +40,7 @@ docker==7.1.0
 docstring_parser==0.16
 docx2txt==0.8
 durationpy==0.9
-embedchain==0.1.123
+embedchain>=0.1.123
 emoji==2.14.0
 eval_type_backport==0.2.0
 executing==2.1.0
