@@ -89,8 +89,8 @@ Using the provided guidelines, calculate taxable rental income for each property
    - Apply ownership share to the result
 
 2. Simplified Rental Expense Claims Method:
-   - Deduct mortgage interest from gross rental income
-   - Deduct 15% of gross rental income as deemed expenses
+   - Deduct full mortgage interest from gross rental income
+   - Deduct 15 percent of gross rental income as deemed expenses
    - Apply ownership share to the result
 
 For each property and method, show:
@@ -159,7 +159,7 @@ def run_rental_analysis(property_list: List[Dict]) -> str:
         "What are the benefits and considerations for choosing between actual expense claims and simplified rental expense claims methods?")
 
     # Initialize LLM
-    llm = ChatOpenAI(temperature=0, model="gpt-4")
+    llm = ChatOpenAI(temperature=0)
     output_parser = StrOutputParser()
 
     # Create chains for each analysis step

@@ -117,7 +117,7 @@ def show_documentation():
             - LangChain Framework
             - ChromaDB Vector Store
             - OpenAI Embedding Systems
-            - CrewAI Orchestration
+            - Pandas
             """)
 
     with tab3:
