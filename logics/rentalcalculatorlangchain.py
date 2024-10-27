@@ -177,19 +177,31 @@ Create a markdown report showing:
      - Rental Income
      - Deductible Expenses
      - Ownership share
-     - Taxable Rent
+     - Taxable Rent (show calculation steps)
      - Non-deductible expenses with explanations
-   - Total taxable rent for all properties. Do NOT combine the Total taxable rent for all properties for both claim methods.
+   - Total taxable rent for all properties
+   - IMPORTANT: Calculate and show the exact numerical values for each method
 
-2. Your recommendation:
-   - Identify the method that results in lower taxable rent
-   - Explain benefits and considerations of the recommended method, referencing the guidelines
-   - If both methods yield the same result, explain pros and cons without making a recommendation
+2. Numerical Comparison and Recommendation:
+   - First, explicitly state the total taxable rent for each method:
+     * Actual Expense Claims Method Total: $X
+     * Simplified Rental Expense Claims Method Total: $Y
+   - Perform a direct numerical comparison to determine which amount is lower
+   - IMPORTANT: Recommend the method that results in the mathematically lower taxable rent value
+   - Your recommendation must begin with: "Based on the numerical comparison, the [method name] results in a lower taxable rent of $[amount] compared to $[amount] for the other method."
+   - Then explain benefits and considerations of the recommended method, referencing the guidelines
+   - If both methods yield exactly the same numerical result, explain pros and cons without making a recommendation
 
 3. Important reminders:
    - Owner's responsibility for accurate tax reporting
    - Requirement to keep expense records for 5 years
    - Any specific compliance requirements from the guidelines
+
+Mathematical Verification Steps Required:
+1. Double-check all calculations before making recommendation
+2. Verify that ownership shares are correctly applied
+3. Confirm that the recommended method truly results in the lowest numerical value
+4. Show all intermediate calculation steps
 
 Do not use markdown code blocks in your response.""")
 
