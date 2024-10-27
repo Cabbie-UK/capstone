@@ -132,7 +132,7 @@ def show_documentation():
         2. **Knowledge Base Infrastructure**
            - Vectorized tax information repository
            - Curated response database
-           - Validated use-case scenarios
+           - Augmented with Google Search Results
         
         3. **User Analysis**
            - Profile-specific parameters
