@@ -7,7 +7,7 @@ from helper_functions.utility import check_password
 
 # region <--------- Streamlit App Configuration --------->
 st.set_page_config(
-    page_title="TaxEase!🤖",
+    page_title="TaxEase Tax Advisor",
     page_icon="🤖",
     layout="wide"
 )

@@ -134,10 +134,10 @@ def show_documentation():
            - Curated response database
            - Validated use-case scenarios
         
-        3. **User Analytics**
+        3. **User Analysis**
            - Profile-specific parameters
            - Property portfolio information
-           - Expense tracking metrics
+           - No collection of personal information
         """)
 
     with tab4:
