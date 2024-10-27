@@ -57,7 +57,6 @@ st.markdown("""
     }
     .stDataFrame {
         border-radius: 10px;
-
     }
     .stAlert {
         border-radius: 10px;
@@ -65,9 +64,13 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# region <--------- Initialize env variables and load vector store --------->
+# region <--------- Initialise env variables and load vector store --------->
+
 load_dotenv('.env')
 
+# Load the vector store collection for tax reliefs
+# Refer to the generate_chroma_db_for_reliefs.py script at the root folder to create the vector store
+# cache this resource for faster loading
 @st.cache_resource
 def load_vector_store():
     embeddings_model = OpenAIEmbeddings(model='text-embedding-3-small')
@@ -81,7 +84,9 @@ def load_vector_store():
 vector_store = load_vector_store()
 retriever = vector_store.as_retriever(k=5)
 
-# region <--------- Setup system message and initialize messages object --------->
+# region <--------- Setup system message and initialise messages object --------->
+
+# Setup system message for the tax relief chatbot
 system_message = """
 You are an intelligent assistant specializing in tax relief queries relating to Singapore tax system using the information available in the Chroma database or your own knowledge. 
 Your user may use online form to provide some information about himself, and this is captured in the messages object. 
@@ -94,17 +99,20 @@ channels:
 3. Email: https://mytax.iras.gov.sg/portal/correspondence/mytax-mail
 """
 
+# Always initiate the chatbot with the system message
 if "messages" not in st.session_state:
     st.session_state.messages = [
         {"role": "system", "content": system_message}
     ]
 
-# region <--------- Title and Header --------->
+# region <--------- Page Title and Header --------->
+
 col1, col2 = st.columns([2, 1])
 with col1:
     st.title("🤖 TaxEase: Your Helpful GenAI Tax Advisor")
     st.subheader("Intelligent Tax Advisory Solutions")
 
+# Warning a message, a project requirement
 with st.expander('⚠️ Important Information'):
     st.markdown("""
     **IMPORTANT NOTICE**: This web application is a prototype developed for **educational purposes only**. The information provided here is **NOT** intended for real-world usage and should not be relied upon for making any decisions, especially those related to financial, legal, or healthcare matters.
@@ -117,9 +125,10 @@ with st.expander('⚠️ Important Information'):
 st.write('Choose one of the two tax matters I can assist you with:')
 
 # Create tabs with improved styling
+# Displays the 2 use cases as part of the project requirements
 relief, rent = st.tabs([" 💰 Claim Tax Reliefs ", " 🏠 Calculate Taxable Rental Income"])
 
-# region <--------- Claim Tax Reliefs tab --------->
+# region <--------- Use Case 1: Claim Tax Reliefs tab --------->
 with relief:
     st.header("Claim Tax Reliefs")
     st.write("""
@@ -129,6 +138,7 @@ with relief:
             """)    
     st.warning('You are eligible for personal reliefs and rebates if you are a Singapore Tax Resident and if you fulfilled the qualifying conditions of the reliefs and rebates')
     st.info('Note: Only a tax resident (including non-Singapore Citizens who are in Singapore for more than 183 days in a year) can claim for tax relief.')
+    
     with st.form(key="form"):
         st.write("Please select the option that applies to you for the following questions:")
 
@@ -163,22 +173,29 @@ with relief:
                         index=None,
                         horizontal=True
                         )               
-
             
         submit_filter = st.form_submit_button(label="Find Eligible Tax Reliefs" )
 
     if submit_filter:
+        # The capture_and_store function is available in .logics>datafile.py
+        # Does not require all 5 profile attributes to be provided
         user_prompt = capture_and_store(citizenship=citizenship, 
                                         gender=gender,
                                         maritial_status=maritial_status,
                                         employment=employment,
                                         children=children)
+        
+        # Insert this in to the messages object as the user's initial query
         st.session_state.messages.append({"role": "user", "content": user_prompt})
+        
+        # The filter_and_get_reliefs function is available in .logic>datafile.py
         llm_response = filter_and_get_reliefs(citizenship=citizenship, 
                                         gender=gender,
                                         maritial_status=maritial_status,
                                         employment=employment,
                                         children=children)
+        
+        # Insert this into the messages object as the assistant's response to user's initial query        
         st.session_state.messages.append({"role": "assistant", "content": llm_response})
 
 
@@ -206,7 +223,7 @@ with relief:
             # Get chatbot response
             response = get_chatbot_response(prompt=prompt,
                                             retriever=retriever,
-                                            messages=st.session_state.messages
+                                            messages=st.session_state.messages # refer to messages object for earlier conversations
                                             )
             
             # Append assistant response
@@ -219,16 +236,17 @@ with relief:
     # Clear chat button in the second (narrower) column
     with col2:
         if st.button("Clear Chat", key="clear_chat"):
+            # Clear all earlier messages excep the system message
             st.session_state.messages = [
                 {"role": "system", "content": system_message}
             ]
             
     
 
-# region <--------- The codes below are for Rental Income Tax Calculator --------->
+# region <--------- Use Case 2:  Rental Income Tax Calculator --------->
 
 import pandas as pd
-# from logics.crew_analysis import run_crew_analysis
+# from logics.crew_analysis import run_crew_analysis # CrewAi not compatible with ChromaDB on streamlit :(
 from logics.rentalcalculatorlangchain import run_rental_analysis
 import requests.exceptions
 
@@ -241,18 +259,19 @@ with rent:
     """)    
     st.warning('This form will only help your compute your taxable net rent from YA2022 owwards. If you need to compute your taxable rent for YA 2021 and before, please visit https://www.iras.gov.sg/quick-links/calculators to download the relevant calculator ')
 
-    # Initialize session state for properties if it doesn't exist
+    # Initialise session state for properties if it doesn't exist
     if 'properties' not in st.session_state:
         st.session_state.properties = []
 
     st.subheader('Step 1: Enter the property rental details')
+    # Capped no. of properties that can be added to 10. Can be increased if nccy.
     num_properties = st.number_input("Number of properties", min_value=1, max_value=10)
 
     for i in range(num_properties):
         with st.container(border=True):
             st.subheader(f"Property {i+1}")
             
-            # Initialize property in session state if it doesn't exist
+            # Initialise property in session state if it doesn't exist
             if i >= len(st.session_state.properties):
                 st.session_state.properties.append({
                     "rental_income": 0.0,
@@ -267,7 +286,9 @@ with rent:
 
             with rent:
 
-                property_info["rental_income"] = st.number_input(f"Rental Income", min_value=0.0, key=f"income_{i}", value=property_info["rental_income"])
+                property_info["rental_income"] = st.number_input(f"Rental Income", min_value=0.0, key=f"income_{i}", 
+                                                                 value=property_info["rental_income"],
+                                                                 help="Includes rent of the property, furniture and fittings and maintenance")
                 
             with share:
                 property_info["is_co_owned"] = st.checkbox(f"Co-owned", key=f"co_owned_{i}", value=property_info["is_co_owned"])
@@ -276,7 +297,8 @@ with rent:
 
             
             expense_add, expense_update = st.columns([1, 2]) 
-
+            # This column is to faciliate the adding and claiming of expenses
+            # Can be removed and just rely on the datatable if preferred
             with expense_add:
                 st.subheader("Add Expense")
 
@@ -299,8 +321,7 @@ with rent:
                     # Check if new_expense is empty or all-NA
                     # This is to address the FutureWarning that appears in the Terminal when run the app
                     if not new_expense.empty and not new_expense.isnull().all().all():
-                        property_info["expenses"] = pd.concat([property_info["expenses"], new_expense], ignore_index=True)
-            
+                        property_info["expenses"] = pd.concat([property_info["expenses"], new_expense], ignore_index=True)     
                     
             
         
@@ -337,7 +358,7 @@ with rent:
     # This function is merely to trigger the toggle_calculate function
     if st.button("Show input summary", on_click=toggle_calculate):
         pass
-
+    # Display the no. of properties updated
     if st.session_state.calculate_clicked:
         st.write("Properties submitted:", len(st.session_state.properties))
         
@@ -357,19 +378,20 @@ with rent:
                     
                     # Calculate total expenses
                     total_expenses = prop['expenses']['Amount'].sum()
-                    st.write(f"Total Expenses: ${total_expenses:,.2f}")
+                    st.write(f"Total Expenses submitted: ${total_expenses:,.2f}")
                     
             
                 with col2:
                     st.button("Remove Property", key=f"remove_prop_{idx}", on_click=remove_property, args=(idx,))
-
+        
+        # Copy info provided onto a property list object
         property_list = st.session_state.properties
 
         # Add a button to clear all properties
         st.button("Clear All Properties", on_click=clear_all_properties)
 
     st.subheader('Step 3: Generate a rental income report')
-    # Add this where you want the analysis button to appear
+    # Button to trigger the Sequential analysis
     if st.button("Analyse Rental Income"):
         # First check if properties exist
         if not st.session_state.properties:
@@ -379,14 +401,15 @@ with rent:
                 try:
 
                     # Run the analysis with the provided path
-                    # result = run_crew_analysis(property_list)
+                    # result = run_crew_analysis(property_list) # CrewAI script not used
                     result = run_rental_analysis(property_list)
-                    result = result.replace("$", "\\$")
+                    result = result.replace("$", "\\$") # escape the $ character which may distort markdown formatting
                     
                     
                     st.markdown("## Analysis Results")
                     st.markdown(result)                   
-                        
+
+                # Handle execptions gracefully        
                 except requests.exceptions.ConnectionError:
                     st.error("❌ Connection error occurred. Please check your internet connection.")
                     st.info("This tool requires internet access to perform the analysis.")

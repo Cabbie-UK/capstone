@@ -86,6 +86,6 @@ def get_chatbot_response(prompt, retriever, messages):
   if vector_response and "result" in vector_response:
     return vector_response["result"].replace("$", "\\$")
   else:
-    return "I couldn't find an exact match for your query, but feel free to ask more."
+    return "I couldn't find an exact match for your query, but feel free to ask more to help me understand your query better."
 
 

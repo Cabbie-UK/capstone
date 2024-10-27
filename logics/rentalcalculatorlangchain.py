@@ -7,7 +7,6 @@ from typing import List, Dict
 import os
 from langchain.prompts import PromptTemplate
 from langchain_openai import ChatOpenAI
-from langchain.schema.output_parser import StrOutputParser
 from langchain.chains import SequentialChain, LLMChain
 from langchain.chains import RetrievalQA
 from langchain_chroma import Chroma
@@ -17,6 +16,7 @@ from dotenv import load_dotenv
 
 load_dotenv('.env')
 
+# Create function to allow chain to obtain info from the web using google serach
 def perform_tax_research(query: str) -> dict:
     """
     Perform a Google search using SerpAPI for tax-related queries
@@ -46,8 +46,9 @@ def perform_tax_research(query: str) -> dict:
         }
     return {"title": "", "snippet": "", "link": ""}
 
+
 def initialise_vector_store():
-    """Initialize and return the Chroma vector store"""
+    """Initialise and return the Chroma vector store"""
     embeddings_model = OpenAIEmbeddings(model='text-embedding-3-small')
     vector_store = Chroma(
         collection_name="rental_info",
@@ -202,7 +203,7 @@ def run_rental_analysis(property_list: List[Dict]) -> str:
     Returns:
         str: Analysis results in markdown format
     """
-    # Initialize vector store and QA chain
+    # Initialise vector store and QA chain
     vector_store = initialise_vector_store()
     qa_chain = create_qa_chain(vector_store)
 
@@ -214,9 +215,8 @@ def run_rental_analysis(property_list: List[Dict]) -> str:
     strategy_guidelines = get_tax_guidelines(qa_chain,
         "What are the benefits and considerations for choosing between actual expense claims and simplified rental expense claims methods?")
 
-    # Initialize LLM
+    # Initialise LLM
     llm = ChatOpenAI(temperature=0)
-    output_parser = StrOutputParser()
 
     # Create chains for each analysis step
     tax_specialist_chain = LLMChain(
