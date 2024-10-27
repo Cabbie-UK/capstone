@@ -166,7 +166,7 @@ def show_documentation():
         st.markdown("### Development Roadmap")
         
         planned_features = {
-            "Feature Expansion": [
+            "Possible Feature Expansion": [
                 "Business Tax Calculator",
                 "GST Registration Advisor",
                 "Tax Planning Tools",
