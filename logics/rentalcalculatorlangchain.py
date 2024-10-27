@@ -82,6 +82,10 @@ Tax Guidelines Reference:
 
 Properties Data: {properties_list}
 
+IMPORTANT: Only analyze the exact number of properties provided in the properties_list. Do not create or assume additional properties.
+
+First, state the number of properties found in the input data.
+
 Using the provided tax guidelines and property data, analyse each property to determine allowable expenses:
 
 For each property:
@@ -105,8 +109,7 @@ Please format your response as a structured analysis of each property, including
   - Description
   - Tax deductibility status
   - Explanation if not allowable, with reference to specific guidelines or search results
-
-Focus on clear, factual determinations based on the provided Singapore tax regulations and verified information.""")
+""")
 
 def create_rent_computation_prompt() -> PromptTemplate:
     return PromptTemplate(
@@ -117,6 +120,8 @@ Tax Computation Guidelines:
 {computation_guidelines}
 
 Previous Analysis: {tax_specialist_output}
+
+IMPORTANT: Only compute values for properties that were analyzed in the Previous Analysis section. Do not create or assume additional properties.
 
 Using the provided guidelines, calculate taxable rental income for each property using:
 
@@ -143,7 +148,7 @@ If co-ownership status is 'True:
     - Property Ownership Share = 20%
     - Taxable Rent: ($60,000 - $40,000) * 20% = $4,000
 
-For each property and method, show:
+For each actual property from the Previous Analysis, show:
 - Rental Income
 - Deductible Expenses (itemized)
 - Ownership share
@@ -169,6 +174,8 @@ Tax Strategy Guidelines:
 {strategy_guidelines}
 
 Computation Results: {computation_results}
+
+IMPORTANT: Only include properties that were analyzed in the Computation Results. Do not create or assume additional properties.
 
 Create a markdown report showing:
 
