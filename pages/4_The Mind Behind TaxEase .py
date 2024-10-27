@@ -69,7 +69,7 @@ def show_developer_profile():
         with col1:
             st.markdown("""
             Hi, I'm **Kah Boon** from IRAS' Taxpayer Experience Division, where I focus on Service Analytics. 
-            I graduated with a Master's in IT and Business (Analytics) from SMU in 2024 and am passionate about 
+            I graduated with a Master of IT in Business (Analytics) from SMU in 2024 and am passionate about 
             using analytics to make a real-world impact with a user-centered approach.
             """)
             
@@ -97,16 +97,6 @@ def show_developer_profile():
         - Data Visualisation and Business Intelligence (Tableau, Power BI, Streamlit, R Shiny)
         - Database Management (SQL)
         """)
-
-    # Education Section
-    st.markdown("## 🎓 Educational Background")
-    st.markdown("""
-    ### Master's in IT and Business (Analytics)
-    **Singapore Management University (SMU)**
-    - Graduated: 2024
-    - Focus: Business Analytics and Technology
-    - Key Areas: Data Science, Machine Learning, Business Intelligence
-    """)
 
     # Vision Section
     st.markdown("## 💡 Vision for TaxEase")
