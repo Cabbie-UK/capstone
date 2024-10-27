@@ -144,8 +144,8 @@ def show_documentation():
         st.markdown("### Important Information")
         st.warning("""
         - This platform serves as an educational and advisory tool - all final tax matters should be verified with IRAS
-        - System compatibility: YA2022 onwards
-        - For official tax inquiries, please utilize these IRAS channels:
+        - System compatibility: Year of Assessment (YA) 2022 onwards
+        - For official tax inquiries, please utilise these IRAS channels:
         """)
         
         col1, col2 = st.columns(2)
