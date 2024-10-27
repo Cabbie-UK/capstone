@@ -13,8 +13,8 @@ st.set_page_config(
 )
 
 # Check if the password is correct.  
-if not check_password():  
-    st.stop()
+# if not check_password():  
+#     st.stop()
 
 from dotenv import load_dotenv
 from langchain_chroma import Chroma
@@ -57,7 +57,7 @@ st.markdown("""
     }
     .stDataFrame {
         border-radius: 10px;
-        overflow: hidden;
+
     }
     .stAlert {
         border-radius: 10px;

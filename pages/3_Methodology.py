@@ -76,10 +76,10 @@ def show_methodology():
             
     1. The system queries a tax relief table provided in a CSV file.
     2. It identifies tax reliefs that match the profile inputs provided by the user.
-    3. These matched tax reliefs serve as the initial query and response in the chat conversation.
+    3. The profile inputs and matched tax reliefs serve as the initial query and response in the chat conversation.
     4. This provides context and facilitates further exploration of relevant reliefs. 
     
-    This approach reduces possible mismatches that could arise from the probabilistic nature of LLMs' responses, ensuring higher accuracy in recommendations.
+    This approach reduces possible mismatches that could arise from the probabilistic nature of LLMs' responses, ensuring higher accuracy in relief recommendations.
     """)
 
     st.markdown("### Output Generation")
@@ -89,7 +89,7 @@ def show_methodology():
     1. Review their filtered list of eligible reliefs
     2. Identify specific reliefs of interest
     3. Obtain detailed information through our interactive chatbot
-    4. Access comprehensive explanations powered by our RAG LLM system
+    4. Access comprehensive explanations powered by our retrieval-augmented generation (RAG) LLM system
     5. Receive guidance based on authentic tax relief information extracted directly from IRAS website
     """)
 
@@ -121,14 +121,19 @@ def show_methodology():
 
     st.markdown("### Recommendations")
     st.success("""
-    The final stage leverages our advanced analytics tool to:
+    The final stage leverages our LangChain sequential analysis system to:
     
-    1. Employ a multi-agent LLM (CrewAI) for comprehensive data analysis
-    2. Review all submitted information systematically
-    3. Identify optimal tax-efficient expense claim methods
-    4. Provide comprehensive analysis of potential outcomes
-    5. Outline specific benefits for each recommended approach
-    6. Ensure maximum legitimate tax advantages
+    1. Initialise a vector store with comprehensive tax guidelines from IRAS
+    2. Execute a three-stage analysis through specialised chains:
+       - Tax Specialist Chain: Reviews and categorises expenses for deductibility
+       - Rent Computation Chain: Calculates taxable income using both actual and simplified methods
+       - Strategy Analysis Chain: Provides optimised recommendations
+    3. Generate comprehensive reports including:
+       - Detailed breakdown of allowable and non-allowable expenses
+       - Comparative analysis of both computation methods
+       - Strategic recommendations for tax optimisation
+       - Important compliance reminders and record-keeping requirements
+    4. Provide evidence-based recommendations and tax-efficient reporting grounded on IRAS guidelines
     """)
 
     # Display flowchart

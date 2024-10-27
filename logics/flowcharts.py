@@ -44,44 +44,50 @@ def display_rental_income_flowchart():
     st.header("Rental Income Calculator Flow Chart")
     rental_income_chart = """
     flowchart TD
-        Start[Start] --> Step1[Step 1: Enter Property Details]
-        
-        Step1 --> NumProperties[Input Number of Properties]
-        NumProperties --> PropertyLoop[["For each property:
+        Start[Start] --> PropertyInput[Input Property Details]
+        PropertyInput --> InputFields[["Collect for each property:
             - Rental Income
             - Co-ownership Status
             - Ownership Share
             - Expenses"]]
         
-        PropertyLoop --> ExpenseDetails[["Add Expenses:
-            - Category
-            - Amount
-            - Description"]]
+        InputFields --> InitSetup[Initialise Analysis Components]
+        InitSetup --> VectorStore[Initialise Vector Store]
+        VectorStore --> QAChain[Create QA Chain]
         
-        ExpenseDetails --> Step2[Step 2: Review Details]
-        Step2 --> Modify{Modify Details?}
-        Modify -->|Yes| Step1
+        QAChain --> FetchGuidelines[Fetch Tax Guidelines]
+        FetchGuidelines --> Guidelines1[Tax Deduction Guidelines]
+        FetchGuidelines --> Guidelines2[Computation Guidelines]
+        FetchGuidelines --> Guidelines3[Strategy Guidelines]
         
-        Modify -->|No| Step3[Step 3: Generate Report]
-        Step3 --> InitiateAnalysis[Start CrewAI Analysis]
+        Guidelines1 & Guidelines2 & Guidelines3 --> CreateChains[Create LangChain Components]
         
-        InitiateAnalysis --> TaxSpecialist[Tax Deduction Specialist Analysis]
-        TaxSpecialist --> |Analyse Expenses| AllowableExp[["Determine:
-            - Allowable Expenses
-            - Non-allowable Expenses
-            - Justifications"]]
+        CreateChains --> TaxSpecialist[Tax Specialist Chain]
+        TaxSpecialist --> |Analyse Expenses| ExpenseAnalysis[["For each property:
+            - Review expense categories
+            - Check tax deductibility
+            - Perform tax research if needed
+            - Categorise expenses
+            - Apply ownership share"]]
         
-        AllowableExp --> RentExpert[Rent Computation Expert Analysis]
-        RentExpert --> |Calculate| TwoMethods[["Calculate using:
-            1. Actual Expense Method
-            2. Simplified Method (15%)"]]
+        ExpenseAnalysis --> RentComputation[Rent Computation Chain]
+        RentComputation --> |Calculate Methods| Methods[["Calculate using:
+            1. Actual Expense Method:
+                - Subtract allowable expenses
+                - Apply ownership share
+            2. Simplified Method:
+                - Deduct mortgage interest
+                - Apply 15% deemed expenses
+                - Apply ownership share"]]
         
-        TwoMethods --> Strategist[Rental Income Strategist Analysis]
-        Strategist --> CompareResults[Compare Both Methods]
-        CompareResults --> GenerateReport[Generate Final Report]
+        Methods --> Strategist[Strategist Chain]
+        Strategist --> Report[["Generate Final Report:
+            - Per-property breakdown
+            - Method comparison
+            - Recommended method
+            - Compliance reminders"]]
         
-        GenerateReport --> DisplayResults[Display Analysis Results]
-        DisplayResults --> End[End]
+        Report --> End[End]
 
         style Start fill:#90EE90
         style End fill:#FFB6C1
