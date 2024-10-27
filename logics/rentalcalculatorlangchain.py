@@ -181,6 +181,7 @@ Create a markdown report showing:
      - Non-deductible expenses with explanations
    - Total taxable rent for all properties
    - IMPORTANT: Calculate and show the exact numerical values for each method
+   - IMPORTANT: All non-deductible expenses with their respective explanations
 
 2. Numerical Comparison and Recommendation:
    - First, explicitly state the total taxable rent for each method:
