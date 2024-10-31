@@ -203,7 +203,6 @@ Create a markdown report showing:
 3. Important reminders:
    - Owner's responsibility for accurate and timely tax reporting
    - Requirement to keep expense records for 5 years
-   - Any specific compliance requirements from the guidelines
 
 Mathematical Verification Steps Required:
 1. Double-check all calculations before making recommendation
