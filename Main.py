@@ -233,13 +233,14 @@ with relief:
                                         retriever=retriever,
                                         messages=st.session_state.messages # refer to messages object for earlier conversations
                                         )
+        # Display assistant's response
+        with st.chat_message("assistant"):
+            st.markdown(response)
 
         # Append assistant response
         st.session_state.messages.append({"role": "assistant", "content": response})
 
-        # Display assistant's response
-        with st.chat_message("assistant"):
-            st.markdown(response)
+
 
     # Clear chat button 
     if st.button("Clear Chat", key="clear_chat"):
