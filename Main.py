@@ -92,7 +92,7 @@ You are an intelligent assistant specializing in tax relief queries relating to 
 Your user may use online form to provide some information about himself, and this is captured in the messages object. 
 You shall make use of the information provided to answer the user queries.
 
-If and only if you have no information to offer, please inform user to send the query to IRAS through the following 
+If and only if you have absolutely no information to offer, please inform user to send the query to IRAS through the following 
 channels:
 1. Live Chat: https://go.gov.sg/iras-livechat
 2. Call: 1800 356 8300 for local calls or (+65) 6356 8300 from overseas
@@ -198,50 +198,56 @@ with relief:
         # Insert this into the messages object as the assistant's response to user's initial query        
         st.session_state.messages.append({"role": "assistant", "content": llm_response})
 
+# Modify the chat display section
+    st.subheader("Chat Conversation")
+    # Check if there are user and assistant messages beyond the system message
+    if len(st.session_state.messages) > 1:
+        # Create a chat container with a fixed height and scrollable
+        chat_container = st.container(height=500, border=True)
 
-    # Display chat messages
-    for message in st.session_state.messages:
-        # Omit the display of system message
-        if message["role"] != "system":
-            with st.chat_message(message["role"]):
-                st.markdown(message["content"])
+        with chat_container:
+            # Display chat messages
+            for message in st.session_state.messages:
+                # Omit the display of system message
+                if message["role"] != "system":
+                    with st.chat_message(message["role"]):
+                        st.markdown(message["content"])
+    else:
+        # Show a placeholder or initial instruction when no messages exist
+        st.info("Your chat history will appear here after you submit the form or start chatting.")
 
+    # Separate query input at the bottom of the screen
+    st.divider()  # Add a visual separator
 
-    # Create two columns for chat input and clear button
-    col1, col2 = st.columns([5.2, 1])  
+    # Chat input box 
+    if prompt := st.chat_input("Ask me anything related to Singapore tax reliefs:"):
+        # Append user input to session state
+        st.session_state.messages.append({"role": "user", "content": prompt})
 
-    # Chat input box in the first (wider) column
-    with col1:
-        if prompt := st.chat_input("Ask me anything related to Singapore tax reliefs:"):
-            # Append user input to session state
-            st.session_state.messages.append({"role": "user", "content": prompt})
-            
-            # Display the user query
-            with st.chat_message("user"):
-                st.markdown(prompt)
-            
-            # Get chatbot response
-            response = get_chatbot_response(prompt=prompt,
-                                            retriever=retriever,
-                                            messages=st.session_state.messages # refer to messages object for earlier conversations
-                                            )
-            
-            # Append assistant response
-            st.session_state.messages.append({"role": "assistant", "content": response})
-            
-            # Display assistant's response
-            with st.chat_message("assistant"):
-                st.markdown(response)
+        # Display the user query
+        with st.chat_message("user"):
+            st.markdown(prompt)
 
-    # Clear chat button in the second (narrower) column
-    with col2:
-        if st.button("Clear Chat", key="clear_chat"):
-            # Clear all earlier messages excep the system message
-            st.session_state.messages = [
-                {"role": "system", "content": system_message}
-            ]
-            
-    
+        # Get chatbot response
+        response = get_chatbot_response(prompt=prompt,
+                                        retriever=retriever,
+                                        messages=st.session_state.messages # refer to messages object for earlier conversations
+                                        )
+
+        # Append assistant response
+        st.session_state.messages.append({"role": "assistant", "content": response})
+
+        # Display assistant's response
+        with st.chat_message("assistant"):
+            st.markdown(response)
+
+    # Clear chat button 
+    if st.button("Clear Chat", key="clear_chat"):
+        # Clear all earlier messages except the system message
+        st.session_state.messages = [
+            {"role": "system", "content": system_message}
+        ]
+
 
 # region <--------- Use Case 2:  Rental Income Tax Calculator --------->
 

@@ -201,7 +201,7 @@ Create a markdown report showing:
    - If both methods yield exactly the same numerical result, explain pros and cons without making a recommendation
 
 3. Important reminders:
-   - Owner's responsibility for accurate tax reporting
+   - Owner's responsibility for accurate and timely tax reporting
    - Requirement to keep expense records for 5 years
    - Any specific compliance requirements from the guidelines
 
