@@ -67,8 +67,7 @@ def display_rental_income_flowchart():
             - Review expense categories
             - Check tax deductibility
             - Perform tax research if needed
-            - Categorise expenses
-            - Apply ownership share"]]
+            - Categorise expenses"]]
         
         ExpenseAnalysis --> RentComputation[Rent Computation Chain]
         RentComputation --> |Calculate Methods| Methods[["Calculate using:
