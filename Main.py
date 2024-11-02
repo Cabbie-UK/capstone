@@ -1,6 +1,6 @@
-# __import__('pysqlite3')
-# import sys
-# sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 import streamlit as st
 from helper_functions.utility import check_password
@@ -90,7 +90,7 @@ retriever = vector_store.as_retriever(k=5)
 system_message = """
 You are an intelligent assistant specializing in tax relief queries relating to Singapore tax system using the information available in the Chroma database or your own knowledge. 
 Your user may use online form to provide some information about himself, and this is captured in the messages object. 
-You shall make use of the information provided to answer the user queries.
+You shall make use of the information availble in your knowledge base to answer the user queries.
 
 If and only if you have absolutely no information to offer, please inform user to send the query to IRAS through the following 
 channels:
@@ -177,70 +177,63 @@ with relief:
         submit_filter = st.form_submit_button(label="Find Eligible Tax Reliefs" )
 
     if submit_filter:
-        # The capture_and_store function is available in .logics>datafile.py
-        # Does not require all 5 profile attributes to be provided
-        user_prompt = capture_and_store(citizenship=citizenship, 
-                                        gender=gender,
-                                        maritial_status=maritial_status,
-                                        employment=employment,
-                                        children=children)
-        
-        # Insert this in to the messages object as the user's initial query
-        st.session_state.messages.append({"role": "user", "content": user_prompt})
-        
-        # The filter_and_get_reliefs function is available in .logic>datafile.py
-        llm_response = filter_and_get_reliefs(citizenship=citizenship, 
-                                        gender=gender,
-                                        maritial_status=maritial_status,
-                                        employment=employment,
-                                        children=children)
-        
-        # Insert this into the messages object as the assistant's response to user's initial query        
-        st.session_state.messages.append({"role": "assistant", "content": llm_response})
+        with st.spinner('Finding eligible tax reliefs...'):
+            # The capture_and_store function is available in .logics>datafile.py
+            # Does not require all 5 profile attributes to be provided
+            user_prompt = capture_and_store(citizenship=citizenship, 
+                                            gender=gender,
+                                            maritial_status=maritial_status,
+                                            employment=employment,
+                                            children=children)
+            
+            # Insert this in to the messages object as the user's initial query
+            st.session_state.messages.append({"role": "user", "content": user_prompt})
+            
+            # The filter_and_get_reliefs function is available in .logic>datafile.py
+            llm_response = filter_and_get_reliefs(citizenship=citizenship, 
+                                            gender=gender,
+                                            maritial_status=maritial_status,
+                                            employment=employment,
+                                            children=children)
+            
+            # Insert this into the messages object as the assistant's response to user's initial query        
+            st.session_state.messages.append({"role": "assistant", "content": llm_response})
 
-# Modify the chat display section
+# region <--------- Use Case 1: Chat Conversation region --------->
     st.subheader("Chat Conversation")
-    # Check if there are user and assistant messages beyond the system message
-    if len(st.session_state.messages) > 1:
-        # Create a chat container with a fixed height and scrollable
-        chat_container = st.container(height=500, border=True)
+    # Create chat container 
+    chat_container = st.container(height=500, border=True)
 
-        with chat_container:
-            # Display chat messages
+    # Create a placeholder for the spinner
+    spinner_placeholder = st.empty()
+
+    # Chat input box 
+    if prompt := st.chat_input("Ask me anything related to Singapore tax reliefs:"):
+        st.session_state.messages.append({"role": "user", "content": prompt})
+
+        # Show spinner while generating response
+        with spinner_placeholder:
+            with st.spinner('Thinking...'):
+                response = get_chatbot_response(prompt=prompt,
+                                          retriever=retriever,
+                                          messages=st.session_state.messages) # refer to messages object for earlier conversations
+        
+        # Clear the spinner placeholder after response is generated
+        spinner_placeholder.empty()
+        
+        st.session_state.messages.append({"role": "assistant", "content": response})
+
+    # Display messages in chat container
+    with chat_container:
+        if len(st.session_state.messages) > 1:
             for message in st.session_state.messages:
                 # Omit the display of system message
                 if message["role"] != "system":
                     with st.chat_message(message["role"]):
                         st.markdown(message["content"])
-    else:
-        # Show a placeholder or initial instruction when no messages exist
-        st.info("Your chat history will appear here after you submit the form or start chatting.")
-
-    # Separate query input at the bottom of the screen
-    st.divider()  # Add a visual separator
-
-    # Chat input box 
-    if prompt := st.chat_input("Ask me anything related to Singapore tax reliefs:"):
-        # Append user input to session state
-        st.session_state.messages.append({"role": "user", "content": prompt})
-
-        # Display the user query
-        with st.chat_message("user"):
-            st.markdown(prompt)
-
-        # Get chatbot response
-        response = get_chatbot_response(prompt=prompt,
-                                        retriever=retriever,
-                                        messages=st.session_state.messages # refer to messages object for earlier conversations
-                                        )
-        # Display assistant's response
-        with st.chat_message("assistant"):
-            st.markdown(response)
-
-        # Append assistant response
-        st.session_state.messages.append({"role": "assistant", "content": response})
-
-
+        else:
+            # Show a placeholder or initial instruction when no messages exist
+            st.info("Your chat history will appear here after you submit the form or start chatting.")
 
     # Clear chat button 
     if st.button("Clear Chat", key="clear_chat"):
