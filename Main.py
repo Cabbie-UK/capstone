@@ -9,8 +9,7 @@ from helper_functions.utility import check_password
 st.set_page_config(
     page_title="TaxEase Tax Advisor",
     page_icon="🤖",
-    layout="wide",
-    menu_items=None
+    layout="wide"
 )
 
 # Check if the password is correct.  
