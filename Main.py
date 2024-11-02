@@ -10,7 +10,7 @@ st.set_page_config(
     page_title="TaxEase Tax Advisor",
     page_icon="🤖",
     layout="wide",
-    menu_items={}
+    menu_items=None
 )
 
 # Check if the password is correct.  
