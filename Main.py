@@ -27,6 +27,7 @@ import requests.exceptions
 # Custom CSS for better styling
 st.markdown("""
     <style>
+    .stGitHubLink {visibility: hidden;}
     .main {
         padding: 2rem;
     }
