@@ -61,6 +61,9 @@ st.markdown("""
     .stAlert {
         border-radius: 10px;
     }
+    #GithubIcon {
+        visibility: hidden;
+    }
     </style>
 """, unsafe_allow_html=True)
 
