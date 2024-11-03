@@ -134,7 +134,7 @@ def show_methodology():
 
     st.markdown("### Final Report & Recommendations")
     st.success("""
-    Our system generates a detailed final report including:
+    Thereafter, our system generates a detailed final report covering:
 
     1. Property-Specific Analysis
        - Complete breakdown of rental income
