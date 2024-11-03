@@ -113,27 +113,27 @@ def show_methodology():
     st.markdown("### Income Calculation")
     st.info("""
     Our system employs a precise calculation methodology that:
-    
-    1. Considers all deductible expenses that can be claimed against rental income
-    2. Determines the user's portion of total rental income based on documented ownership share
-    3. Calculates the final taxable rental amount with adjustments for the user's specific situation
+            
+    1. Initialise a vector store with comprehensive tax guidelines from IRAS
+    2. Execute a three-stage analysis through specialised LLM chains:
+       - Tax Specialist Chain: Reviews and categorises expenses for deductibility
+       - Rent Computation Chain: Calculates taxable income using both actual and simplified methods
+       - Strategy Analysis Chain: Provides optimised tax recommendations    
+    3. Considers all deductible expenses that can be claimed against rental income
+    4. Determines the user's portion of total rental income based on the ownership share
+    5. Calculates the final taxable rental amount with adjustments for the user's specific situation
     """)
 
     st.markdown("### Recommendations")
     st.success("""
-    The final stage leverages our LangChain sequential analysis system to:
-    
-    1. Initialise a vector store with comprehensive tax guidelines from IRAS
-    2. Execute a three-stage analysis through specialised chains:
-       - Tax Specialist Chain: Reviews and categorises expenses for deductibility
-       - Rent Computation Chain: Calculates taxable income using both actual and simplified methods
-       - Strategy Analysis Chain: Provides optimised recommendations
-    3. Generate comprehensive reports including:
+    The final stage leverages our LangChain sequential analysis system to:   
+ 
+    1. Generate comprehensive reports including:
        - Detailed breakdown of allowable and non-allowable expenses
        - Comparative analysis of both computation methods
        - Strategic recommendations for tax optimisation
        - Important compliance reminders and record-keeping requirements
-    4. Provide evidence-based recommendations and tax-efficient reporting grounded on IRAS guidelines
+    2. Provide evidence-based recommendations and tax-efficient reporting grounded on IRAS guidelines
     """)
 
     # Display flowchart
