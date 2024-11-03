@@ -102,14 +102,14 @@ def show_methodology():
     
     st.markdown("### Property Details Input")
     st.info("""
-    Please provide the following essential information for each rental property:
+    User provides the following essential information for each rental property:
 
     - Property rental income details
     - Co-ownership status (if applicable)
     - Your ownership share percentage
     - All property-related expenses
     
-    This information helps us accurately assess your rental income tax situation.
+    This information helps us accurately assess the user's rental income tax situation.
     """)
 
     st.markdown("### Analysis Process")
@@ -142,15 +142,14 @@ def show_methodology():
        - Ownership share calculations
 
     2. Method Comparison
-       - Side-by-side analysis of actual vs. simplified methods
+       - Comparative analysis of actual vs. simplified methods
        - Clear presentation of tax implications for each approach
        - Highlighted advantages and considerations
 
     3. Strategic Guidance
-       - Recommended calculation method based on your situation
-       - Key compliance requirements and deadlines
+       - Recommended calculation method based on user's situation
+       - Key compliance requirements
        - Essential record-keeping guidelines
-       - Tips for future tax optimization
     """)
 
     # Display flowchart
