@@ -98,42 +98,59 @@ def show_methodology():
     st.write("Below is a detailed flowchart of our tax relief advisory process:")
     display_tax_relief_flowchart()
 
-    # Rental Income Calculation Flow Section
     st.markdown("## 2. Rental Income Calculation Flow")
     
-    st.markdown("### Input Collection")
+    st.markdown("### Property Details Input")
     st.info("""
-    Our rental income assessment begins with a comprehensive data gathering of property rental details:
+    Please provide the following essential information for each rental property:
 
-    - Gross Rental Income
-    - Ownership percentage
-    - Detailed rental expense records
+    - Property rental income details
+    - Co-ownership status (if applicable)
+    - Your ownership share percentage
+    - All property-related expenses
+    
+    This information helps us accurately assess your rental income tax situation.
     """)
 
-    st.markdown("### Income Calculation")
+    st.markdown("### Analysis Process")
     st.info("""
-    Our system employs a precise calculation methodology that:
-            
-    1. Initialise a vector store with comprehensive tax guidelines from IRAS
-    2. Execute a three-stage analysis through specialised LLM chains:
-       - Tax Specialist Chain: Reviews and categorises expenses for deductibility
-       - Rent Computation Chain: Calculates taxable income using both actual and simplified methods
-       - Strategy Analysis Chain: Provides optimised tax recommendations    
-    3. Considers all deductible expenses that can be claimed against rental income
-    4. Determines the user's portion of total rental income based on the ownership share
-    5. Calculates the final taxable rental amount with adjustments for the user's specific situation
+    Our intelligent tax analysis system follows these steps:
+
+    1. Initial Setup
+       - Creates a specialized vector store for tax guidelines
+       - Establishes QA chain for accurate tax interpretations
+       - Loads latest IRAS tax guidelines and regulations
+
+    2. Comprehensive Analysis
+       - Tax Specialist Review:
+         • Evaluates each expense category
+         • Determines tax deductibility
+         • Performs detailed tax research when needed
+       - Computation Methods:
+         • Actual Expense Method: Detailed expense deductions
+         • Simplified Method: 15% deemed expenses plus mortgage interest
+       - Strategy Assessment: Identifies optimal tax approach
     """)
 
-    st.markdown("### Recommendations")
+    st.markdown("### Final Report & Recommendations")
     st.success("""
-    The final stage leverages our LangChain sequential analysis system to:   
- 
-    1. Generate comprehensive reports including:
-       - Detailed breakdown of allowable and non-allowable expenses
-       - Comparative analysis of both computation methods
-       - Strategic recommendations for tax optimisation
-       - Important compliance reminders and record-keeping requirements
-    2. Provide evidence-based recommendations and tax-efficient reporting grounded on IRAS guidelines
+    Our system generates a detailed final report including:
+
+    1. Property-Specific Analysis
+       - Complete breakdown of rental income
+       - Detailed expense categorization
+       - Ownership share calculations
+
+    2. Method Comparison
+       - Side-by-side analysis of actual vs. simplified methods
+       - Clear presentation of tax implications for each approach
+       - Highlighted advantages and considerations
+
+    3. Strategic Guidance
+       - Recommended calculation method based on your situation
+       - Key compliance requirements and deadlines
+       - Essential record-keeping guidelines
+       - Tips for future tax optimization
     """)
 
     # Display flowchart
