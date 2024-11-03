@@ -106,7 +106,7 @@ def show_methodology():
 
     - Property rental income details
     - Co-ownership status (if applicable)
-    - Your ownership share percentage
+    - Ownership share percentage
     - All property-related expenses
     
     This information helps us accurately assess the user's rental income tax situation.
@@ -114,7 +114,7 @@ def show_methodology():
 
     st.markdown("### Analysis Process")
     st.info("""
-    Our intelligent tax analysis system follows these steps:
+    Our tax analysis system follows these steps:
 
     1. Initial Setup
        - Creates a specialised vector store for tax guidelines
@@ -123,12 +123,12 @@ def show_methodology():
 
     2. Comprehensive Analysis
        - Tax Specialist Review:
-         • Evaluates each expense category
-         • Determines tax deductibility
-         • Performs detailed tax research when needed
+         - Evaluates each expense category
+         - Determines tax deductibility
+         - Performs detailed tax research when needed
        - Computation Methods:
-         • Actual Expense Method: Detailed expense deductions
-         • Simplified Method: 15% deemed expenses plus mortgage interest
+         - Actual Expense Method: Detailed expense deductions
+         = Simplified Method: 15% deemed expenses plus mortgage interest
        - Strategy Assessment: Identifies optimal tax approach
     """)
 
