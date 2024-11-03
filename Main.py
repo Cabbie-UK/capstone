@@ -300,7 +300,7 @@ with rent:
 
             
             expense_add, expense_update = st.columns([1, 2]) 
-            # This column is to faciliate the adding and claiming of expenses
+            # Column faciliate the adding and claiming of expenses
             # Can be removed and just rely on the datatable if preferred
             with expense_add:
                 st.subheader("Add Expense")
@@ -324,10 +324,9 @@ with rent:
                     # Check if new_expense is empty or all-NA
                     # This is to address the FutureWarning that appears in the Terminal when run the app
                     if not new_expense.empty and not new_expense.isnull().all().all():
-                        property_info["expenses"] = pd.concat([property_info["expenses"], new_expense], ignore_index=True)     
+                        property_info["expenses"] = pd.concat([property_info["expenses"], new_expense], ignore_index=True)    
                     
-            
-        
+            #  Column to review and update the expenses that have been added       
             with expense_update:
                 st.subheader("Expenses")
                 st.write('You can edit the info in the datatable below, add or delete rows.')
@@ -419,12 +418,8 @@ with rent:
                 
                 except KeyError as e:
                     st.error(f"❌ Missing required environment variable: {str(e)}")
-                    st.info("Please ensure all required environment variables are set in your .env file.")
-                
-                except FileNotFoundError as e:
-                    st.error(f"❌ File not found: {str(e)}")
-                    st.info("Please ensure all required files are in the correct location.")
-                
+                    st.info("Please ensure all required environment variables are set in your .env file.")            
+               
                 except Exception as e:
                     st.error(f"❌ An unexpected error occurred: {str(e)}")
                     st.info("If this persists, please check your setup and try again.")
