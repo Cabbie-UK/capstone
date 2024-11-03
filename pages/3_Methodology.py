@@ -128,7 +128,7 @@ def show_methodology():
          - Performs detailed tax research when needed
        - Computation Methods:
          - Actual Expense Method: Detailed expense deductions
-         = Simplified Method: 15% deemed expenses plus mortgage interest
+         - Simplified Method: 15% deemed expenses plus mortgage interest
        - Strategy Assessment: Identifies optimal tax approach
     """)
 
