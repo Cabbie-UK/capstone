@@ -117,7 +117,7 @@ def show_methodology():
     Our intelligent tax analysis system follows these steps:
 
     1. Initial Setup
-       - Creates a specialized vector store for tax guidelines
+       - Creates a specialised vector store for tax guidelines
        - Establishes QA chain for accurate tax interpretations
        - Loads latest IRAS tax guidelines and regulations
 
@@ -138,7 +138,7 @@ def show_methodology():
 
     1. Property-Specific Analysis
        - Complete breakdown of rental income
-       - Detailed expense categorization
+       - Detailed expense categorisation
        - Ownership share calculations
 
     2. Method Comparison
@@ -153,7 +153,7 @@ def show_methodology():
     """)
 
     # Display flowchart
-    st.markdown("### Rental Income Calculation Process Visualization")
+    st.markdown("### Rental Income Calculation Process Visualisation")
     st.write("Below is a detailed flowchart of our rental income calculation process:")
     display_rental_income_flowchart()
 
